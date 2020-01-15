@@ -3,6 +3,7 @@ import { getStudentList } from "../lib/api";
 import { Ring } from "react-awesome-spinners";
 import MyContext from "../context/MyContext";
 import StudentList from "./StudentList";
+import Student from "./Student";
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Home extends React.Component {
     this.handleData.bind(this);
     this.state = {
       isLoading: false,
-      students: [], 
+      students: [],
     };
   }
 
@@ -18,9 +19,8 @@ class Home extends React.Component {
     try {
       this.setState({ isLoading: true });
       const response = await getStudentList();
-      const { data } = response;
       this.setState({
-        students: data.students,
+        students: response.data.students,
         isLoading: false
       });
     } catch (e) {
@@ -31,7 +31,7 @@ class Home extends React.Component {
   componentDidMount() {
     
     this.handleData();
-    setInterval(()=>{this.handleData()}, 6000)
+    // setInterval(()=>{this.handleData()}, 6000)
   }
 
   componentWillUnmount(){

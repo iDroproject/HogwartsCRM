@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  color: white;
   font-size: medium;
   font-weight: 600;
   height: 58px;
@@ -37,6 +38,11 @@ a:hover {
   margin-top: 1%;
 }
 
+.students-tablet{
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .list-info {
   color: white;
   background-color: grey;
@@ -48,6 +54,7 @@ a:hover {
 }
 
 .list-row {
+  width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid azure;
   color: white;
@@ -56,3 +63,100 @@ a:hover {
   justify-content: space-between;
   padding: 1% 0.5%
 }
+
+.list-row:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.student-btn {
+  width: 75px;
+  height: 34px;
+  border: none;
+  background: orange;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+
+}
+
+.create-student-btn {
+  float: right;
+  width: 75px;
+  height: 34px;
+  border: none;
+  background: #007bff;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+}
+
+
+.new-student-container{
+  border: 1px solid blue;
+  border-radius: 2px;
+  height: 80vh;
+  margin-top: 1%;
+}
+
+.student-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2px;
+  height: 80vh;
+  margin-top: 1%;
+  color:white;
+}
+
+.student-info-box{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid orange;
+  align-items: center;
+  height: 65vh;
+  width: 65%;
+  color: #007bff;
+}
+
+.student-info-box h1{
+  color: white;
+}
+
+.student-fname-lname{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5% 0;
+  width: 60%;
+  color: white;
+}
+
+.student-skillz{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5% 0;
+  width: 80%;
+  color: white;
+}
+
+.student-desired-interested{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5% 0;
+  width: 60%;
+  color: white;
+}
+
+.student-created-updated {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5% 0;
+  width: 60%;
+  color: white;
+}
+
