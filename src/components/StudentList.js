@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import MyContext from "../context/MyContext.js";
 import NewStudent from "./NewStudent";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const StudentList = props => {
   const [addNewStudent, setAddNewStudent, getStudent, setGetStudent] = useState(
     false
   );
+  const history = useHistory()
 
   function setNewStudentBool() {
     setAddNewStudent(true);
@@ -65,10 +66,10 @@ const StudentList = props => {
 
           <button
             className="create-student-btn"
-            onClick={() => setNewStudentBool()}
+            onClick={() => history.push('/newstudent')}
           >
             New Student
-          </button>
+          </button> 
         </div>
       )}
       {addNewStudent && <NewStudent />}

@@ -155,8 +155,36 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 5% 0;
+  margin: 3% 0;
   width: 60%;
   color: white;
 }
+.student-btn-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+}
+.student-edit-btn {
+  float: right;
+  width: 75px;
+  height: 34px;
+  border: none;
+  background: lightgreen;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
 
+}
+
+.student-delete-btn {
+  float: right;
+  width: 75px;
+  height: 34px;
+  border: none;
+  background: lightcoral;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+
+}
