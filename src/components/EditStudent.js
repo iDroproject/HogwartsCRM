@@ -12,16 +12,15 @@ class EditStudent extends React.Component {
 
   componentDidMount() {
     console.log(window.location.pathname);
-
-    return axios.get(`http://127.0.0.1:5000/student/3/edit_student`).then((response) =>
+        return axios.get(`http://127.0.0.1:5000/student/3/edit_student`).then((response) =>
         this.setState({
-            student: response
+            student: response.data
         }));
     }
     
 
   render() {
-      console.log(this.props.student, this.student, this.state)
+      console.log(this.state)
     return (
       <div className="student-container">
         <div className="student-info-box">
