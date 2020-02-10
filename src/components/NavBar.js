@@ -6,6 +6,14 @@ function NavBar() {
     <div>
       <nav className="nav-bar">
         <ul>
+        <li>
+          <div className="logo-container">
+            <img id="logo" src={process.env.PUBLIC_URL + 'logo3.png'} />
+            HogwartsCRM
+          </div>
+          </li>
+        </ul>
+        <ul>
           <li>
             <Link to="/students"> Students-List </Link>
           </li>

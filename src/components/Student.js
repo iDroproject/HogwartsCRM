@@ -20,6 +20,7 @@ class Student extends React.Component {
     try {
       const studentId = await getStudentById();
       const { data } = studentId;
+      console.log(data.student)
       this.setState({ student: data.student });
     } catch (err) {
       console.error("Failed to get student ;/");
@@ -53,7 +54,7 @@ class Student extends React.Component {
             <div>Last update time: </div>
           </div>
           <div className="student-btn-container">
-            <Link to={{ pathname: `/student/${student.id}/edit_student`, student: student}}>
+            <Link to={{ pathname: `/edit_student/${student.id}`}}>
             <button className="student-edit-btn" onClick={() => this.editStudentBool()} > edit </button>
             </Link>
             <button className="student-delete-btn">delete</button>

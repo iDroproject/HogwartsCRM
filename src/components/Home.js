@@ -43,12 +43,12 @@ class Home extends React.Component {
     return (
       <div>
         <MyContext.Provider value={this.state}>
-          <StudentList />
           {isLoading && (
           <div className="page-loader">
             <Ring />
           </div>
         )}
+          <StudentList />
         </MyContext.Provider>
       </div>
     );

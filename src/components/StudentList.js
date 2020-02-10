@@ -20,56 +20,68 @@ const StudentList = props => {
   //     //    redirect localhost:5000/student/id
   //   }
 
+{/* <div class="flex-table row" role="rowgroup">
+  <div class="flex-row first" role="cell"><span class="flag-icon flag-icon-gb"></span> United Kingdom</div>
+  <div class="flex-row" role="cell">Stonehenge, Windsor and Bath with Pub Lunch </div>
+  <div class="flex-row" role="cell">19 Sep, 1p.m.</div>
+  <div class="flex-row" role="cell">US$500</div>
+</div> */}
+
   return (
     <div>
       {!addNewStudent && (
         <div className="list-constructor">
-          <table className="students-tablet">
-            <tr className="list-info">
-              <td className="field-id">ID</td>
-              <td className="field-first-name">First Name</td>
-              <td className="field-last-name">Last Name</td>
-              <td className="field-time-created">Magic Skillz</td>
-              <td className="field-time-created">Created on</td>
-              <td className="field-time-created">Last Updated on</td>
-              <td className="field-time-created"></td>
-            </tr>
-          </table>
+          <div className="table-container" role="table" aria-label="Destinations">
+          <div className="flex-table header" role="rowgroup">
+              <div className="flex-row first" role="columnheader" value="ID">ID</div>
+              <div className="flex-row first" role="columnheader" value="First" >First Name</div>
+              <div className="flex-row first" role="columnheader" value="Second" >Last Name</div>
+              <div className="flex-row first" role="columnheader" value="MagicSkillz" >Magic Skillz</div>
+              <div className="flex-row first" role="columnheader" value="Created" >Created on</div>
+              <div className="flex-row first" role="columnheader" value="Updated" >Last Updated on</div>
+            </div>
+          </div>
           <MyContext.Consumer>
             {({ students }) => (
-              <table className="students-tablet">
+              <div className="table-container" role="table" aria-label="Destinations">
                   {console.log(students)}
                 {students.map(student=> {
                   return (
                     <Link to={`/student/?ID=${student.id}`} >
-                      <tr
-                        className="list-row"
+                      <div
+                        className="flex-table row" role="rowgroup"
                       >
-                        <td className="field id">{student.id}</td>
-                        <td className="field first-name">
+                        <div className="flex-row first" role="cell">{student.id}</div>
+                        <div className="flex-row" role="cell">
                           {student.first_name}
-                        </td>
-                        <td className="field last-name">{student.last_name}</td>
-                        <td className="field-time-created">
+                        </div>
+                        <div className="flex-row" role="cell">{student.last_name}</div>
+                        <div className="flex-row" role="cell">
+                          {student.magic_skillz}
+                        </div>
+                        <div className="flex-row" role="cell">
                           {student.created_on}
-                        </td>
-                        <td className="field-time-created">
-                          {student.updated_on}
-                        </td>
-                      </tr>
+                        </div>
+                        <div className="flex-row" role="cell">
+                          {student.update_on}
+                        </div>
+                      </div>
                     </Link>
                   );
                 })}
-              </table>
+              </div>
             )}
           </MyContext.Consumer>
-
+          {/* <Link to={{ pathname:`/new_student`}}> */}
+          <div className="newstudent-btn-container">
           <button
             className="create-student-btn"
-            onClick={() => history.push('/newstudent')}
+            onClick={() => history.push('/new_student')}
           >
             New Student
-          </button> 
+          </button>
+          </div>
+          {/* </Link> */}
         </div>
       )}
       {addNewStudent && <NewStudent />}

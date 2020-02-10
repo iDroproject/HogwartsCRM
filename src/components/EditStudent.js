@@ -1,45 +1,71 @@
 import React from "react";
 import { updateStudentById } from "../lib/api";
-import axios from "axios"
 
 class EditStudent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        student: {},
+      student: {},
+      studentInput: false
     };
   }
 
   componentDidMount() {
-    console.log(window.location.pathname);
-        return axios.get(`http://127.0.0.1:5000/student/3/edit_student`).then((response) =>
-        this.setState({
-            student: response.data
-        }));
-    }
-    
+    this.updateData()
+  }
+  
+  
+  updateData() {
+    let student_id = this.props.match.params['id'];
+    updateStudentById(student_id, this.state.student).then(res => {
+      console.log(res)
+    }).catch(err => console.log(err));
+  }
+
+  handleFnameOnSubmit(event) {
+    const { student } = this.state;
+    student.first_name = event.target.value;
+    this.setState({ student: student });
+    console.log(student);
+  }
+
+  handleLnameOnSubmit(event) {
+    const { student } = this.state;
+    student.last_name = event.target.value;
+    this.setState({ student: student });
+    console.log(student);
+  }
 
   render() {
-      console.log(this.state)
+    const { student } = this.state;
     return (
       <div className="student-container">
         <div className="student-info-box">
-          <h1>Student card</h1>
+          <h1>Edit student card</h1>
           <div className="student-fname-lname">
-            {/* <div>first name: <input type="text" {student.first_name}/></div>
-            <div>last name: <input type="text" {student.last_name}/></div>
+            <div>
+              First Name:
+              <input
+                type="text"
+                value={student.first_name}
+                onChange={event => this.handleFnameOnSubmit(event)}
+              />
+            </div>
+            <div>
+              Last Name:
+              <input
+                type="text"
+                value={student.last_name}
+                onChange={event => this.handleLnameOnSubmit(event)}
+              />
+            </div>
           </div>
-          <div className="student-skillz">
-            <div>magic_skillz: {student.magic_skillz}</div> */}
-          </div>
-          <div className="student-desired-interested">
-            <div>Desired magic skillz: </div>
-            <div>Interested in course: </div>
-          </div>
-          <div className="student-created-updated">
-            <div>Creation time: </div>
-            <div>Last update time: </div>
-          </div>
+          <button
+            className="student-edit-btn"
+            onClick={() => this.updateData()}
+          >
+            sumbit
+          </button>
         </div>
       </div>
     );
